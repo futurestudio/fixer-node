@@ -1,7 +1,7 @@
 {
   "name": "fixer-node",
   "description": "Node.js library to access the fixer.io API",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "author": "Future Studio <info@futurestud.io>",
   "bugs": {
     "url": "https://github.com/fs-opensource/fixer-node/issues"
