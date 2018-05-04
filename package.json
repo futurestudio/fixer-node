@@ -1,0 +1,58 @@
+{
+  "name": "fixer-node",
+  "description": "Node.js library to access the fixer.io API",
+  "version": "1.0.0",
+  "author": "Future Studio <info@futurestud.io>",
+  "bugs": {
+    "url": "https://github.com/fs-opensource/fixer-node/issues"
+  },
+  "contributors": [
+    {
+      "name": "Marcus Poehls",
+      "email": "marcus@futurestud.io"
+    },
+    {
+      "name": "Norman Peitek",
+      "email": "norman@futurestud.io"
+    },
+    {
+      "name": "Christian Fellner",
+      "email": "christian@futurestud.io"
+    }
+  ],
+  "dependencies": {
+    "axios": "~0.18.0",
+    "lodash": "~4.17.10"
+  },
+  "devDependencies": {
+    "code": "~5.2.0",
+    "cross-env": "~5.1.4",
+    "eslint": "~4.19.1",
+    "eslint-config-prettier": "~2.9.0",
+    "eslint-config-standard": "~11.0.0",
+    "eslint-plugin-import": "~2.11.0",
+    "eslint-plugin-node": "~6.0.1",
+    "eslint-plugin-prettier": "~2.6.0",
+    "eslint-plugin-promise": "~3.7.0",
+    "eslint-plugin-standard": "~3.1.0",
+    "lab": "~15.4.0",
+    "prettier": "~1.12.1"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "homepage": "https://github.com/fs-opensource/fixer-node#readme",
+  "keywords": [
+    "developer"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fs-opensource/fixer-node.git"
+  },
+  "scripts": {
+    "prepush": "npm test",
+    "test": "lab --assert code --leaks --coverage --lint"
+  }
+}
