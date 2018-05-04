@@ -4,7 +4,7 @@
 
 ------
 
-<p align="center"><sup>The <a href="https://futurestud.io">Future Studio University</a> supports development of this hapi plugin 🚀</sup>
+<p align="center"><sup>The <a href="https://futurestud.io">Future Studio University</a> supports development of this Node.js library 🚀</sup>
 <br><b>
 Join the <a href="https://futurestud.io/university">Future Studio University and Skyrocket in Node.js</a></b>
 </p>
@@ -41,46 +41,39 @@ Initialize an instance of `fixer-node` and pass your fixer.io access key as an a
 const Fixer = require('fixer-node')
 const fixer = new Fixer('access-key')
 
-// fetch symbols
-async function fetchFixer() {
-    try {
-        // list of currency symbols (mapping between shortcut and full name, e.g. EUR: Euro)
-        const data = fixer.symbols()
-        console.log(data.symbols)
+// list of currency symbols (mapping between shortcut and full name, e.g. EUR: Euro)
+const data = await fixer.symbols()
+console.log(data.symbols)
 
-        // get the latest rates for all currencies
-        const latest = fixer.latest()
-        console.log(latest.rates)
-        console.log(latest.rates['EUR']) // for EUR
+// get the latest rates for all currencies
+const latest = await fixer.latest()
+console.log(latest.rates)
+console.log(latest.rates['EUR']) // for EUR
 
-        // get the latest rates for selected currencies
-        const latest = fixer.latest('EUR, USD, AUD')
-        console.log(latest.rates) // contains the three rates
-        console.log(latest.rates['EUR']) // for EUR
+// get the latest rates for selected currencies
+const latest = await fixer.latest('EUR, USD, AUD')
+console.log(latest.rates) // contains the three rates
+console.log(latest.rates['EUR']) // for EUR
 
-        // get the latest rates for selected currencies and base
-        const latest = fixer.latest('EUR, USD', 'AUD')
-        console.log(latest.rates) // contains the two rates EUR, USD for base AUD
-        console.log(latest.rates['EUR']) // for EUR
+// get the latest rates for selected currencies and base
+const latest = await fixer.latest('EUR, USD', 'AUD')
+console.log(latest.rates) // contains the two rates EUR, USD for base AUD
+console.log(latest.rates['EUR']) // for EUR
 
-        // get all rates for a selected base
-        const latest = fixer.base('AUD')
-        console.log(latest.rates)
-    } catch (err) {
-        // handle error
-    }
-}
+// get all rates for a selected base
+const latest = await fixer.base('AUD')
+console.log(latest.rates)
 ```
 
 
 ## Feature Requests
 Do you miss a feature? Please don’t hesitate to
-[create an issue](https://github.com/fs-opensource/hapi-pulse/issues) with a short description of your desired addition to this plugin.
+[create an issue](https://github.com/fs-opensource/fixer-node/issues) with a short description of your desired addition to this plugin.
 
 
 ## Links & Resources
 
-- [fixer.io](https://fixer.io)
+- [fixer.io](https://fixer.io): exchange rate and currency conversion
 
 
 ## Contributing
