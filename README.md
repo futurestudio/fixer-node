@@ -1,5 +1,6 @@
 # fixer-node
 
+*This library is currently work in progress. All features work, but aren't covered with tests yet. We'll add those in the next days. Thank you!*
 ------
 
 <p align="center"><sup>The <a href="https://futurestud.io">Future Studio University</a> supports development of this hapi plugin 🚀</sup>
