@@ -48,6 +48,21 @@ const fixer = new Fixer('access-key')
 ```
 
 
+### Options
+The constructor of `fixer-node` requires an access key as the first argument.
+
+The second argument is an `options` object allowing the following properties:
+
+- `https:` (boolean) set the fixer.io API base URL to either `https` or `http`; default: `http`
+
+```js
+const Fixer = require('fixer-node')
+const fixer = new Fixer('access-key', {
+  https: true
+})
+```
+
+
 ### Symbols
 Request a list of currency symbols.
 This is a mapping between the currency shortcut (EUR) and full name (Euro).
@@ -92,6 +107,12 @@ Request historic exchange rates for a given day.
 ```js
 // get exchange rates for May 9th, 2018
 const latest = await fixer.forDate('2018-05-09')
+
+// with symbols
+const latest = await fixer.forDate('2018-05-09', 'USD, EUR, AUD')
+
+// with symbols and base
+const latest = await fixer.forDate('2018-05-09', 'EUR, AUD', 'USD')
 ```
 
 
