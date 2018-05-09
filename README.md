@@ -20,10 +20,6 @@ Join the <a href="https://futurestud.io/university">Future Studio University and
 ------
 
 
-## Introduction
-Node.js library to access the [fixer.io](https://fixer.io) API.
-
-
 ## Requirements
 > **Node.js v8 (or newer)**
 
@@ -43,7 +39,7 @@ npm i -S fixer-node
 
 
 ## Usage
-Initialize an instance of `fixer-node` and pass your fixer.io access key as an argument
+Initialize an instance of `fixer-node` and pass your fixer.io access key as an argument:
 
 ```js
 const Fixer = require('fixer-node')
