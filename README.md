@@ -1,6 +1,8 @@
 # fixer-node
 
-*This library is currently work in progress. All features work, but aren't covered with tests yet. We'll add those in the next days. Thank you!*
+A Node.js SDK to interact with the [fixer.io](https://fixer.io) API.
+
+For release notes, see the [CHANGELOG].(https://github.com/fs-opensource/fixer-node/blob/master/CHANGELOG.md)
 
 <p align="center">
     <a href="https://travis-ci.org/fs-opensource/fixer-node"><img src="https://camo.githubusercontent.com/9f56ef242c6f588f74f39f0bd61c1acd34d853af/68747470733a2f2f7472617669732d63692e6f72672f66732d6f70656e736f757263652f686170692d67656f2d6c6f636174652e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/fs-opensource/fixer-node.svg?branch=master" style="max-width:100%;"></a>
@@ -46,29 +48,53 @@ Initialize an instance of `fixer-node` and pass your fixer.io access key as an a
 ```js
 const Fixer = require('fixer-node')
 const fixer = new Fixer('access-key')
+```
 
-// list of currency symbols (mapping between shortcut and full name, e.g. EUR: Euro)
+
+### Symbols
+Request a list of currency symbols.
+This is a mapping between the currency shortcut (EUR) and full name (Euro).
+
+```js
 const data = await fixer.symbols()
-console.log(data.symbols)
+```
 
+
+### Latest
+Request the latest exchange rates.
+
+The `.latest()` method accepts two parameters:
+
+1. `symbols`: (string) a list of symbols you want the exchange rates for (this reduces the response payload)
+2. `base`: (string) the base currency
+
+```js
 // get the latest rates for all currencies
-const latest = await fixer.latest()
-console.log(latest.rates)
-console.log(latest.rates['EUR']) // for EUR
+const latest = await fixer.latest(symbols, base)
 
 // get the latest rates for selected currencies
 const latest = await fixer.latest('EUR, USD, AUD')
-console.log(latest.rates) // contains the three rates
-console.log(latest.rates['EUR']) // for EUR
 
 // get the latest rates for selected currencies and base
 const latest = await fixer.latest('EUR, USD', 'AUD')
-console.log(latest.rates) // contains the two rates EUR, USD for base AUD
-console.log(latest.rates['EUR']) // for EUR
+```
 
+
+### Base
+Request exchange rates for a given base.
+
+```js
 // get all rates for a selected base
 const latest = await fixer.base('AUD')
-console.log(latest.rates)
+```
+
+
+### Historic
+Request historic exchange rates for a given day.
+
+```js
+// get exchange rates for May 9th, 2018
+const latest = await fixer.forDate('2018-05-09')
 ```
 
 
