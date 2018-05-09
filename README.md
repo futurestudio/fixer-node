@@ -2,7 +2,7 @@
 
 A Node.js SDK to interact with the [fixer.io](https://fixer.io) API.
 
-For release notes, see the [CHANGELOG].(https://github.com/fs-opensource/fixer-node/blob/master/CHANGELOG.md)
+For release notes, see the [CHANGELOG](https://github.com/fs-opensource/fixer-node/blob/master/CHANGELOG.md).
 
 <p align="center">
     <a href="https://travis-ci.org/fs-opensource/fixer-node"><img src="https://camo.githubusercontent.com/9f56ef242c6f588f74f39f0bd61c1acd34d853af/68747470733a2f2f7472617669732d63692e6f72672f66732d6f70656e736f757263652f686170692d67656f2d6c6f636174652e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/fs-opensource/fixer-node.svg?branch=master" style="max-width:100%;"></a>
