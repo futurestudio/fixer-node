@@ -62,7 +62,7 @@ describe('fixer.io:', () => {
       .get('/latest?base=EUR&access_key=access_token')
       .reply(200, { success: true, base: 'EUR', rates: { USD: 1.23456 } })
 
-    const base = await fixer.base({ base: 'EUR' })
+    const base = await fixer.base('EUR')
 
     Code.expect(base).to.exist()
     Code.expect(base.success).to.equal(true)
