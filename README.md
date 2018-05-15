@@ -75,8 +75,13 @@ const fixer = new Fixer('api-key')
 try {
   const data = fixer.base('USD')
 } catch (err) {
-  const info = err.info // is the same as err.message, e.g. "Your monthly API request volume has been reached. Please upgrade your plan"
-  const code = err.code // is the fixer.io API code, e.g. "201" which represents "An invalid base currency has been entered."
+  // err.info is the same as err.message,
+  // e.g. "Your monthly API request volume has been reached. Please upgrade your plan"
+  const info = err.info
+
+  // err.code the fixer.io API code,
+  // e.g. "201" which represents "An invalid base currency has been entered."
+  const code = err.code
 }
 ```
 
