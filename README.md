@@ -89,7 +89,7 @@ Find more details on errors in the [fixer.io API docs](https://fixer.io/document
 
 
 ## API
-> aka “how to use this lib”
+> aka “how to use this library”
 
 `fixer-node` supports all fixer.io API endpoints. Here’s an overview on how to use the methods.
 
@@ -170,10 +170,18 @@ Use both, `.timeseries()` and `.between()`, for the same operation.
 
 ```js
 // start - end
-const timeseries = await fixer.timeseries({ start_date: '2018-05-05', end_date: '2018-05-08' })
+const timeseries = await fixer.timeseries({
+  start_date: '2018-05-05',
+  end_date: '2018-05-08'
+})
 
 // start - end with base and symbols
-const timeseries = await fixer.between({ start_date: '2018-05-05', end_date: '2018-05-08', symbols: 'EUR, USD', base: 'AUD' })
+const timeseries = await fixer.between({
+  start_date: '2018-05-05',
+  end_date: '2018-05-08',
+  symbols: 'EUR, USD',
+  base: 'AUD'
+})
 ```
 
 
@@ -182,10 +190,18 @@ Retrieve information about how currencies fluctuate on a day-to-day basis.
 
 ```js
 // start - end
-const fluctuation = await fixer.fluctuation({ start_date: '2018-05-05', end_date: '2018-05-08' })
+const fluctuation = await fixer.fluctuation({
+  start_date: '2018-05-05',
+  end_date: '2018-05-08'
+})
 
 // start - end with base and symbols
-const fluctuation = await fixer.fluctuation({ start_date: '2018-05-05', end_date: '2018-05-08', symbols: 'EUR, USD', base: 'AUD' })
+const fluctuation = await fixer.fluctuation({
+  start_date: '2018-05-05',
+  end_date: '2018-05-08',
+  symbols: 'EUR, USD',
+  base: 'AUD'
+})
 ```
 
 
