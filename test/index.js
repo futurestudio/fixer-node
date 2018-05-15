@@ -7,7 +7,7 @@ const Fixer = require('../lib/index')
 
 const { describe, it } = (exports.lab = Lab.script())
 
-describe('Library Initialization', () => {
+describe('fixer.io:', () => {
   it('fails to initialize the library without access token', async () => {
     const fn = () => new Fixer()
     Code.expect(fn).to.throw(Error)
@@ -59,10 +59,10 @@ describe('Library Initialization', () => {
     const fixer = new Fixer('access_token')
 
     const nock = Nock(fixer.axios.defaults.baseURL)
-      .get('/latest?access_key=access_token&base=EUR')
+      .get('/latest?base=EUR&access_key=access_token')
       .reply(200, { success: true, base: 'EUR', rates: { USD: 1.23456 } })
 
-    const base = await fixer.base('EUR')
+    const base = await fixer.base({ base: 'EUR' })
 
     Code.expect(base).to.exist()
     Code.expect(base.success).to.equal(true)
@@ -91,10 +91,10 @@ describe('Library Initialization', () => {
     const fixer = new Fixer('access_token')
 
     const nock = Nock(fixer.axios.defaults.baseURL)
-      .get(`/latest?access_key=access_token&symbols=${encodeURIComponent('USD,AUD')}`)
+      .get(`/latest?symbols=${encodeURIComponent('USD,AUD')}&access_key=access_token`)
       .reply(200, { success: true, base: 'EUR', rates: { USD: 1.23456, AUD: 9.87654 } })
 
-    const asString = await fixer.latest('USD,AUD')
+    const asString = await fixer.latest({ symbols: 'USD,AUD' })
 
     Code.expect(asString).to.exist()
     Code.expect(asString.success).to.equal(true)
@@ -109,10 +109,10 @@ describe('Library Initialization', () => {
     const fixer = new Fixer('access_token')
 
     const nock = Nock(fixer.axios.defaults.baseURL)
-      .get(`/latest?access_key=access_token&symbols=${encodeURIComponent('USD,AUD')}`)
+      .get(`/latest?symbols=${encodeURIComponent('USD,AUD')}&access_key=access_token`)
       .reply(200, { success: true, base: 'EUR', rates: { USD: 1.23456, AUD: 9.87654 } })
 
-    const asList = await fixer.latest(['USD', 'AUD'])
+    const asList = await fixer.latest({ symbols: ['USD', 'AUD'] })
 
     Code.expect(asList).to.exist()
     Code.expect(asList.success).to.equal(true)
@@ -123,17 +123,95 @@ describe('Library Initialization', () => {
     nock.done()
   })
 
-  it('fetches historic exchange rates', async () => {
+  it('fetches historic exchange rates with "forDate"', async () => {
     const fixer = new Fixer('access_token')
 
     const nock = Nock(fixer.axios.defaults.baseURL)
       .get('/2018-05-05?access_key=access_token')
       .reply(200, { success: true, base: 'EUR', rates: { USD: 1.23456 } })
 
-    const response = await fixer.forDate('2018-05-05')
+    const response = await fixer.historical({ date: '2018-05-05' })
 
     Code.expect(response).to.exist()
     Code.expect(response.success).to.equal(true)
+    Code.expect(response.rates).to.exist()
+
+    nock.done()
+  })
+
+  it('converts exchange rates', async () => {
+    const fixer = new Fixer('access_token')
+
+    const nock = Nock(fixer.axios.defaults.baseURL)
+      .get('/convert?amount=25&from=GBP&to=JPY&access_key=access_token')
+      .reply(200, {
+        success: true,
+        query: { from: 'GBP', to: 'JPY', amount: 25 },
+        info: { timestamp: 1519328414, rate: 148.972231 },
+        historical: '',
+        date: '2018-02-22',
+        result: 3724.305775
+      })
+
+    const response = await fixer.fromTo({ from: 'GBP', to: 'JPY', amount: 25 })
+
+    Code.expect(response).to.exist()
+    Code.expect(response.success).to.equal(true)
+    Code.expect(response.result).to.exist()
+
+    nock.done()
+  })
+
+  it('fetches timeseries exchange rates', async () => {
+    const fixer = new Fixer('access_token')
+
+    const nock = Nock(fixer.axios.defaults.baseURL)
+      .get('/timeseries?start_date=2018-05-05&end_date=2018-05-07&access_key=access_token')
+      .reply(200, {
+        success: true,
+        timeseries: true,
+        start_date: '2018-05-05',
+        end_date: '2018-05-07',
+        base: 'EUR',
+        rates: {
+          '2018-05-05': { USD: 1.322891, AUD: 1.278047, CAD: 1.302303 },
+          '2018-05-06': { USD: 1.315066, AUD: 1.274202, CAD: 1.299083 },
+          '2018-05-07': { USD: 1.314491, AUD: 1.280135, CAD: 1.296868 }
+        }
+      })
+
+    const response = await fixer.timeseries({ start_date: '2018-05-05', end_date: '2018-05-07' })
+
+    Code.expect(response).to.exist()
+    Code.expect(response.success).to.equal(true)
+    Code.expect(response.timeseries).to.equal(true)
+    Code.expect(response.rates).to.exist()
+
+    nock.done()
+  })
+
+  it('fetches fluctuation exchange rates', async () => {
+    const fixer = new Fixer('access_token')
+
+    const nock = Nock(fixer.axios.defaults.baseURL)
+      .get('/fluctuation?start_date=2018-05-05&end_date=2018-05-07&access_key=access_token')
+      .reply(200, {
+        success: true,
+        fluctuation: true,
+        start_date: '2018-02-25',
+        end_date: '2018-02-26',
+        base: 'EUR',
+        rates: {
+          USD: { start_rate: 1.228952, end_rate: 1.232735, change: 0.0038, change_pct: 0.3078 },
+          JPY: { start_rate: 131.587611, end_rate: 131.651142, change: 0.0635, change_pct: 0.0483 }
+        }
+      })
+
+    const response = await fixer.fluctuation({ start_date: '2018-05-05', end_date: '2018-05-07' })
+
+    Code.expect(response).to.exist()
+    Code.expect(response.success).to.equal(true)
+    Code.expect(response.fluctuation).to.equal(true)
     Code.expect(response.rates).to.exist()
 
     nock.done()
