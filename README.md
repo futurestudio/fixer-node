@@ -62,6 +62,26 @@ const fixer = new Fixer('access-key', {
 })
 ```
 
+### Error Handling
+`fixer-node` throws a custom error instance: [FixerError](https://github.com/fs-opensource/fixer-node/blob/master/lib/fixer-error.js).
+
+The `FixerError` contains the fixer.io API related error properties for `info`, `code`, and `type`.
+The error message is derived from the `info` property.
+
+```js
+const Fixer = require('node-fixer')
+const fixer = new Fixer('api-key')
+
+try {
+  const data = fixer.base('USD')
+} catch (err) {
+  const info = err.info // is the same as err.message, e.g. "Your monthly API request volume has been reached. Please upgrade your plan"
+  const code = err.code // is the fixer.io API code, e.g. "201" which represents "An invalid base currency has been entered."
+}
+```
+
+Find more details on errors in the [fixer.io API docs](https://fixer.io/documentation#errors).
+
 
 ### Symbols
 Request a list of currency symbols.
