@@ -88,7 +88,9 @@ try {
 Find more details on errors in the [fixer.io API docs](https://fixer.io/documentation#errors).
 
 
-## API (aka "how to use this lib")
+## API
+> aka “how to use this lib”
+
 `fixer-node` supports all fixer.io API endpoints. Here’s an overview on how to use the methods.
 
 ### Symbols
