@@ -62,7 +62,7 @@ const fixer = new Fixer('access-key', {
 })
 ```
 
-### Error Handling
+## Error Handling
 `fixer-node` throws a custom error instance: [FixerError](https://github.com/fs-opensource/fixer-node/blob/master/lib/fixer-error.js).
 
 The `FixerError` contains the fixer.io API related error properties for `info`, `code`, and `type`.
@@ -83,6 +83,9 @@ try {
 Find more details on errors in the [fixer.io API docs](https://fixer.io/documentation#errors).
 
 
+## API (aka "how to use this lib")
+`fixer-node` supports all fixer.io API endpoints. Here’s an overview on how to use the methods.
+
 ### Symbols
 Request a list of currency symbols.
 This is a mapping between the currency shortcut (EUR) and full name (Euro).
@@ -102,13 +105,13 @@ The `.latest()` method accepts two parameters:
 
 ```js
 // get the latest rates for all currencies
-const latest = await fixer.latest(symbols, base)
+const latest = await fixer.latest()
 
 // get the latest rates for selected currencies
-const latest = await fixer.latest('EUR, USD, AUD')
+const latest = await fixer.latest({ symbols: 'EUR, USD, AUD' })
 
 // get the latest rates for selected currencies and base
-const latest = await fixer.latest('EUR, USD', 'AUD')
+const latest = await fixer.latest({ symbols: 'EUR, USD', base: 'AUD' })
 ```
 
 
@@ -126,13 +129,56 @@ Request historic exchange rates for a given day.
 
 ```js
 // get exchange rates for May 9th, 2018
-const latest = await fixer.forDate('2018-05-09')
+const latest = await fixer.forDate({ date: '2018-05-09' })
 
 // with symbols
-const latest = await fixer.forDate('2018-05-09', 'USD, EUR, AUD')
+const latest = await fixer.forDate({ date: '2018-05-09', symbols: 'USD, EUR, AUD' })
 
 // with symbols and base
-const latest = await fixer.forDate('2018-05-09', 'EUR, AUD', 'USD')
+const latest = await fixer.forDate({ date: '2018-05-09', symbols: 'EUR, AUD', base: 'USD' })
+```
+
+
+### Convert
+Convert an amount from one currency to another.
+
+The `.convert()` method is aliased as `fromTo()`.
+Use both, `.convert()` and `.fromTo()`, for the same operation.
+
+```js
+// 25 from GBP to JPY
+const convert = await fixer.convert({ from: 'GBP', to: 'JPY', amount: 25 })
+
+// 25 from GBP to JPY on 2018-05-08
+const convert = await fixer.fromTo({ from: 'GBP', to: 'JPY', amount: 25, date: '2018-05-08' })
+```
+
+
+### Time-Series
+Historical exchange rates between two dates.
+
+The `.timeseries()` method is aliased as `between()`.
+Use both, `.timeseries()` and `.between()`, for the same operation.
+
+
+```js
+// start - end
+const timeseries = await fixer.timeseries({ start_date: '2018-05-05', end_date: '2018-05-08' })
+
+// start - end with base and symbols
+const timeseries = await fixer.between({ start_date: '2018-05-05', end_date: '2018-05-08', symbols: 'EUR, USD', base: 'AUD' })
+```
+
+
+### Fluctuation
+Retrieve information about how currencies fluctuate on a day-to-day basis.
+
+```js
+// start - end
+const fluctuation = await fixer.fluctuation({ start_date: '2018-05-05', end_date: '2018-05-08' })
+
+// start - end with base and symbols
+const fluctuation = await fixer.fluctuation({ start_date: '2018-05-05', end_date: '2018-05-08', symbols: 'EUR, USD', base: 'AUD' })
 ```
 
 
