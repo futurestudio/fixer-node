@@ -27,12 +27,13 @@ const latest = fixer.latest({ base: 'USD' })
 
 ### Added
 - `2.0.0` release 🚀 🎉
-- `.between()` and `.historical()` methods to access historic rates (`.between` and `.historial()` are aliased and run the same functionality)
-- `.fromTo()` and `.convert()` methods to convert between rates (`.fromTo` and `.convert()` are aliased and run the same functionality)
+- `.between()` and `.historical()` methods to access historic rates (`.between()` and `.historial()` are aliased and run the same functionality)
+- `.fromTo()` and `.convert()` methods to convert between rates (`.fromTo()` and `.convert()` are aliased and run the same functionality)
 - `.timeseries()` method to access exchange rates for a time range
 - `.fluctuation()` method to access exchange rate changes for a selected time range
 - code snippets for new methods in Readme
 - all methods accept an `options` object
+- tests for new methods
 
 ### Updated
 - code examples in Readme for existing methods from `1.0`
