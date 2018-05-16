@@ -70,7 +70,7 @@ The error message is derived from the `info` property.
 
 ```js
 const Fixer = require('node-fixer')
-const fixer = new Fixer('api-key')
+const fixer = new Fixer('access-key')
 
 try {
   const data = fixer.base('USD')
