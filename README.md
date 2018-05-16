@@ -127,7 +127,10 @@ Request exchange rates for a given base.
 
 ```js
 // get all rates for a selected base
-const latest = await fixer.base('AUD')
+const base = await fixer.base({ base: 'AUD' })
+
+// get specific rates for a selected base
+const base = await fixer.base({ base: 'AUD', symbols: 'USD, EUR' })
 ```
 
 
@@ -136,13 +139,13 @@ Request historic exchange rates for a given day.
 
 ```js
 // get exchange rates for May 9th, 2018
-const latest = await fixer.forDate({ date: '2018-05-09' })
+const date = await fixer.forDate({ date: '2018-05-09' })
 
 // with symbols
-const latest = await fixer.forDate({ date: '2018-05-09', symbols: 'USD, EUR, AUD' })
+const date = await fixer.forDate({ date: '2018-05-09', symbols: 'USD, EUR, AUD' })
 
 // with symbols and base
-const latest = await fixer.forDate({ date: '2018-05-09', symbols: 'EUR, AUD', base: 'USD' })
+const date = await fixer.forDate({ date: '2018-05-09', symbols: 'EUR, AUD', base: 'USD' })
 ```
 
 
