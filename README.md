@@ -73,7 +73,7 @@ const Fixer = require('node-fixer')
 const fixer = new Fixer('access-key')
 
 try {
-  const data = fixer.base('USD')
+  const data = fixer.base({ base: 'USD' })
 } catch (err) {
   // err.info is the same as err.message,
   // e.g. "Your monthly API request volume has been reached. Please upgrade your plan"
@@ -219,6 +219,7 @@ Do you miss a feature? Please don’t hesitate to
 
 
 ## Contributing
+We highly appreciate your pull request and any kind of support!
 
 1.  Create a fork
 2.  Create your feature branch: `git checkout -b my-feature`
