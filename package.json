@@ -44,6 +44,16 @@
   },
   "homepage": "https://github.com/fs-opensource/fixer-node#readme",
   "keywords": [
+    "fixer.io",
+    "fixer",
+    "currency",
+    "exchange",
+    "convert",
+    "rates",
+    "historical",
+    "timeseries",
+    "latest",
+    "currency symbols",
     "developer"
   ],
   "license": "MIT",
