@@ -1,5 +1,7 @@
 # fixer-node
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/futurestudio/fixer-node.svg)](https://greenkeeper.io/)
+
 A Node.js SDK to interact with the [fixer.io](https://fixer.io) API for currency conversion and exchange rates.
 
 For release notes, see the [CHANGELOG](https://github.com/fs-opensource/fixer-node/blob/master/CHANGELOG.md).
