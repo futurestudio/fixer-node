@@ -1,9 +1,18 @@
 # Changelog
 
-## [Unreleased]
 
-### Changed
-- tba.
+## [2.0.1](https://github.com/fs-opensource/fixer-node/compare/v2.0.0...v2.0.1) - 2019-01-xx
+
+### Added
+- test code for Node.js v11
+- package keywords in `package.json`
+
+### Updated
+- format code with Standard
+- bump dependencies
+
+### Deleted
+- remove prettier dependencies
 
 
 ## [2.0.0](https://github.com/fs-opensource/fixer-node/compare/v1.0.0...v2.0.0) - 2018-05-16
