@@ -1,15 +1,14 @@
 # fixer-node
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/futurestudio/fixer-node.svg)](https://greenkeeper.io/)
-
 A Node.js SDK to interact with the [fixer.io](https://fixer.io) API for currency conversion and exchange rates.
 
 For release notes, see the [CHANGELOG](https://github.com/fs-opensource/fixer-node/blob/master/CHANGELOG.md).
 
 
-<p align="left">
+<p align="center">
     <a href="https://travis-ci.org/fs-opensource/fixer-node"><img src="https://camo.githubusercontent.com/9f56ef242c6f588f74f39f0bd61c1acd34d853af/68747470733a2f2f7472617669732d63692e6f72672f66732d6f70656e736f757263652f686170692d67656f2d6c6f636174652e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/fs-opensource/fixer-node.svg?branch=master" style="max-width:100%;"></a>
     <a href="https://snyk.io/test/github/fs-opensource/fixer-node"><img src="https://snyk.io/test/github/fs-opensource/fixer-node/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/fs-opensource/fixer-node" style="max-width:100%;"></a>
+    <a href="https://greenkeeper.io/" rel="nofollow" class="rich-diff-level-one"><img src="https://camo.githubusercontent.com/b20e6f3952e972c2464b74f5900f9628833e585e/68747470733a2f2f6261646765732e677265656e6b65657065722e696f2f66757475726573747564696f2f66697865722d6e6f64652e737667" alt="Greenkeeper badge" data-canonical-src="https://badges.greenkeeper.io/futurestudio/fixer-node.svg" style="max-width:100%;"></a>
     <a href="https://www.npmjs.com/package/fixer-node"><img src="https://img.shields.io/npm/v/fixer-node.svg" alt="fixer-node Version" data-canonical-src="https://img.shields.io/npm/v/fixer-node.svg" style="max-width:100%;"></a>
 </p>
 
