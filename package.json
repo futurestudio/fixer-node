@@ -22,7 +22,8 @@
   ],
   "dependencies": {
     "axios": "~0.18.0",
-    "lodash": "~4.17.11"
+    "lodash": "~4.17.11",
+    "snyk": "^1.161.1"
   },
   "devDependencies": {
     "code": "~5.2.4",
@@ -61,6 +62,9 @@
   },
   "scripts": {
     "prepush": "npm test",
-    "test": "lab --assert code --leaks --coverage --lint"
-  }
+    "test": "lab --assert code --leaks --coverage --lint",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
