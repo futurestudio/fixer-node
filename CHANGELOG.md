@@ -1,7 +1,7 @@
 # Changelog
 
 
-## [2.0.1](https://github.com/fs-opensource/fixer-node/compare/v2.0.0...v2.0.1) - 2019-05-xx
+## [2.0.1](https://github.com/futurestudio/fixer-node/compare/v2.0.0...v2.0.1) - 2019-05-xx
 
 ### Added
 - test code for Node.js v11
@@ -11,12 +11,13 @@
 ### Updated
 - bump dependencies
 - format code with Standard
+- Readme: rename `fs-opensource` to `futurestudio` username
 
 ### Deleted
 - remove Prettier dependencies
 
 
-## [2.0.0](https://github.com/fs-opensource/fixer-node/compare/v1.0.0...v2.0.0) - 2018-05-16
+## [2.0.0](https://github.com/futurestudio/fixer-node/compare/v1.0.0...v2.0.0) - 2018-05-16
 The breaking change from `1.0` to `2.0` is that all methods accept an object as parameter
 instead of individual parameters. This allows you to pass the parameters of interest.
 
@@ -49,7 +50,7 @@ const latest = fixer.latest({ base: 'USD' })
 - code examples in Readme for existing methods from `1.0`
 
 
-## [1.0.0](https://github.com/fs-opensource/fixer-node/compare/v0.1.0...v1.0.0) - 2018-05-10
+## [1.0.0](https://github.com/futurestudio/fixer-node/compare/v0.1.0...v1.0.0) - 2018-05-10
 
 ### Added
 - `1.0.0` release 🚀 🎉

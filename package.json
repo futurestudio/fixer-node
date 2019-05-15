@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "author": "Future Studio <info@futurestud.io>",
   "bugs": {
-    "url": "https://github.com/fs-opensource/fixer-node/issues"
+    "url": "https://github.com/futurestudio/fixer-node/issues"
   },
   "contributors": [
     {
@@ -39,7 +39,7 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "homepage": "https://github.com/fs-opensource/fixer-node#readme",
+  "homepage": "https://github.com/futurestudio/fixer-node#readme",
   "keywords": [
     "fixer",
     "fixer.io",
@@ -57,7 +57,7 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fs-opensource/fixer-node.git"
+    "url": "git+https://github.com/futurestudio/fixer-node.git"
   },
   "scripts": {
     "prepush": "npm test",

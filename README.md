@@ -2,12 +2,12 @@
 
 A Node.js SDK to interact with the [fixer.io](https://fixer.io) API for currency conversion and exchange rates.
 
-For release notes, see the [CHANGELOG](https://github.com/fs-opensource/fixer-node/blob/master/CHANGELOG.md).
+For release notes, see the [CHANGELOG](https://github.com/futurestudio/fixer-node/blob/master/CHANGELOG.md).
 
 
 <p align="center">
-    <a href="https://travis-ci.org/fs-opensource/fixer-node"><img src="https://travis-ci.org/futurestudio/fixer-node.svg?branch=master" alt="Build Status" data-canonical-src="https://travis-ci.org/futurestudio/fixer-node.svg?branch=master" style="max-width:100%;"></a>
-    <a href="https://snyk.io/test/github/fs-opensource/fixer-node"><img src="https://snyk.io/test/github/fs-opensource/fixer-node/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/fs-opensource/fixer-node" style="max-width:100%;"></a>
+    <a href="https://travis-ci.org/futurestudio/fixer-node"><img src="https://travis-ci.org/futurestudio/fixer-node.svg?branch=master" alt="Build Status" data-canonical-src="https://travis-ci.org/futurestudio/fixer-node.svg?branch=master" style="max-width:100%;"></a>
+    <a href="https://snyk.io/test/github/futurestudio/fixer-node"><img src="https://snyk.io/test/github/futurestudio/fixer-node/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/futurestudio/fixer-node" style="max-width:100%;"></a>
     <a href="https://greenkeeper.io/" rel="nofollow" class="rich-diff-level-one"><img src="https://badges.greenkeeper.io/futurestudio/fixer-node.svg" alt="Greenkeeper badge" data-canonical-src="https://badges.greenkeeper.io/futurestudio/fixer-node.svg" style="max-width:100%;"></a>
     <a href="https://www.npmjs.com/package/fixer-node"><img src="https://img.shields.io/npm/v/fixer-node.svg" alt="fixer-node Version" data-canonical-src="https://img.shields.io/npm/v/fixer-node.svg" style="max-width:100%;"></a>
 </p>
@@ -64,7 +64,7 @@ const fixer = new Fixer('access-key', {
 ```
 
 ## Error Handling
-`fixer-node` throws a custom error instance: [FixerError](https://github.com/fs-opensource/fixer-node/blob/master/lib/fixer-error.js).
+`fixer-node` throws a custom error instance: [FixerError](https://github.com/futurestudio/fixer-node/blob/master/lib/fixer-error.js).
 
 The `FixerError` contains the fixer.io API related error properties for `info`, `code`, and `type`.
 The error message is derived from the `info` property.
@@ -211,7 +211,7 @@ const fluctuation = await fixer.fluctuation({
 
 ## Feature Requests
 Do you miss a feature? Please don’t hesitate to
-[create an issue](https://github.com/fs-opensource/fixer-node/issues) with a short description of your desired addition to this plugin.
+[create an issue](https://github.com/futurestudio/fixer-node/issues) with a short description of your desired addition to this plugin.
 
 
 ## Links & Resources
@@ -236,5 +236,5 @@ MIT © [Future Studio](https://futurestud.io)
 ---
 
 > [futurestud.io](https://futurestud.io) &nbsp;&middot;&nbsp;
-> GitHub [@fs-opensource](https://github.com/fs-opensource/) &nbsp;&middot;&nbsp;
+> GitHub [@futurestudio](https://github.com/futurestudio/) &nbsp;&middot;&nbsp;
 > Twitter [@futurestud_io](https://twitter.com/futurestud_io)
