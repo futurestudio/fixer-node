@@ -99,8 +99,8 @@ describe('fixer.io:', () => {
     Code.expect(asString).to.exist()
     Code.expect(asString.success).to.equal(true)
     Code.expect(asString.rates).to.exist()
-    Code.expect(asString.rates['USD']).to.exist()
-    Code.expect(asString.rates['AUD']).to.exist()
+    Code.expect(asString.rates.USD).to.exist()
+    Code.expect(asString.rates.AUD).to.exist()
 
     nock.done()
   })
@@ -117,8 +117,8 @@ describe('fixer.io:', () => {
     Code.expect(asList).to.exist()
     Code.expect(asList.success).to.equal(true)
     Code.expect(asList.rates).to.exist()
-    Code.expect(asList.rates['USD']).to.exist()
-    Code.expect(asList.rates['AUD']).to.exist()
+    Code.expect(asList.rates.USD).to.exist()
+    Code.expect(asList.rates.AUD).to.exist()
 
     nock.done()
   })
