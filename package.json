@@ -34,7 +34,7 @@
     "eslint-plugin-promise": "~7.3.0",
     "eslint-plugin-standard": "~5.0.0",
     "lab": "~18.0.2",
-    "nock": "~14.0.0"
+    "nock": "~15.0.1"
   },
   "engines": {
     "node": ">=8.0.0"
